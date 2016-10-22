@@ -52,10 +52,15 @@
         var url = "{!! url('/') !!}";
     </script>
     <!-- Core JavaScripts -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3LPNwbfVuv8eO0oqNNjpskerGBudoytE"></script>
+    <script src="{{ url('/')  }}/node_modules/moment/min/moment.min.js"></script>
     <script src="{{ url('/') }}/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="{{ url('/')  }}/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="{{ url('/')  }}/node_modules/angular/angular.min.js"></script>
     <script src="{{ url('/')  }}/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="{{ url('/')  }}/node_modules/lodash/lodash.min.js"></script>
+    <script src="{{ url('/')  }}/node_modules/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+
     <script src="{{ url('/')  }}/app/app.js"></script>
     @yield('scripts')
 </body>
