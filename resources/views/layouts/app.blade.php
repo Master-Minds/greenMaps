@@ -39,8 +39,8 @@
                        <li>
                            <a href="#">Регистрация</a>
                        </li>
-                       <li>
-                           <a href="#">Вход</a>
+                       <li class="log-in-link">
+                           <a href="#"><img src="{{ url('/') }}/images/log-in.png">Вход</a>
                        </li>
                    </ul>
                </nav>
