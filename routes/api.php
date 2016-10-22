@@ -37,3 +37,6 @@ Route::get('/get-all-markers', function(Request $request){
 //    dd($markers);
     return response()->json($markers);
 });
+Route::get('/test', function(Request $request){
+  return "work";
+});
