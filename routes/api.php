@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
+
+
+Route::get('/get-all-markers', function(Request $request){
+    $markers = DB::table('markers')
+            ->leftJoin('garbage_types', 'markers.garbage_id', '=', 'garbage_types.id')
+            ->get();
+
+//    dd($markers);
+    return response()->json($markers);
+});
