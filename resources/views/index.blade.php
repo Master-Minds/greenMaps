@@ -102,6 +102,6 @@
 </div>
 @endsection
 
-@section('scripts')
+@section('scripts') 
     <script src="{{ url('/')  }}/app/controllers/main-controller.js"></script>
     @endsection
