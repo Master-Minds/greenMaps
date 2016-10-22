@@ -11,7 +11,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('/')  }}/node_modules/bootstrap/dist/css/bootstrap.min.css">
 
@@ -27,7 +27,7 @@
         <header class="header">
             <div class="shell clearfix">
                 <a href="#" class="logo">
-                   <!--  <img src="{{ url('/') }}/images/logo.png"> -->
+                    <img src="{{ url('/') }}/images/logo-img.png">
                    <h2>GreenMaps</h2>
                 </a>
 
