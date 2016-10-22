@@ -11,10 +11,10 @@
                         obj: null
                     },
                 })
-                    .state('new', {
-                        url: "/new",
-                        templateUrl: url + "/app/templates/main.html",
-                        controller: 'MainCtrl',
+                    .state('about', {
+                        url: "/about",
+                        templateUrl: url + "/app/templates/about.html",
+                        controller: 'AboutCtrl',
                     })
             });
 }());
