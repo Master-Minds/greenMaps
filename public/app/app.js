@@ -1,5 +1,5 @@
 ;(function(){
-        angular.module('GreenMaps', ['ui.router'])
+        angular.module('GreenMaps', ['ui.router', 'uiGmapgoogle-maps', 'ngMap'])
             .config(function($stateProvider, $urlRouterProvider){
                 $urlRouterProvider.otherwise("/");
 
@@ -15,6 +15,7 @@
                         url: "/about",
                         templateUrl: url + "/app/templates/about.html",
                         controller: 'AboutCtrl',
+                        controllerAs: 'vm',
                     })
             });
 }());

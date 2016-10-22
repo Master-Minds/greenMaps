@@ -8,6 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
+    <link rel="profile" href="http://gmpg.org/xfn/11">
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
@@ -60,6 +61,7 @@
     <script src="{{ url('/')  }}/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="{{ url('/')  }}/node_modules/lodash/lodash.min.js"></script>
     <script src="{{ url('/')  }}/node_modules/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+    <script src="{{ url('/')  }}/node_modules/angular-google-maps/dist/angular-google-maps.min.js"></script>
 
     <script src="{{ url('/')  }}/app/app.js"></script>
     @yield('scripts')

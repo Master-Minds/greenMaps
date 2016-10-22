@@ -1,1 +1,13 @@
-<h1>About</h1>
+<div style="width: 100%; height: 500px;">
+    <ui-gmap-google-map options="vm.options" doRebuildAll="true" center='vm.map.center' zoom='vm.map.zoom'>
+        <ui-gmap-layer type="TransitLayer" show="true"></ui-gmap-layer>
+        <ui-gmap-marker coords="vm.marker.coords" options="vm.marker.options" events="vm.marker.events"
+                        idkey="vm.marker.id">
+
+        </ui-gmap-marker>
+    </ui-gmap-google-map>
+
+    <div>
+        <ng-map center="41,-87" zoom="3"></ng-map>
+    </div>
+</div>
