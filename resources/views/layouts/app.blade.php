@@ -43,10 +43,14 @@
        </header>
         @yield('content')
     </div>
+    <script>
+        var url = "{!! url('/') !!}";
+    </script>
     <!-- Core JavaScripts -->
     <script src="{{ url('/') }}/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="{{ url('/')  }}/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="{{ url('/')  }}/node_modules/angular/angular.min.js"></script>
+    <script src="{{ url('/')  }}/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="{{ url('/')  }}/app/app.js"></script>
     @yield('scripts')
 </body>
