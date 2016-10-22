@@ -11,6 +11,8 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('/')  }}/node_modules/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- Scripts -->
@@ -31,11 +33,14 @@
 
                <nav class="nav">
                    <ul>
-                       <li>
+                       <li class="current-menu-item">
                            <a href="#">Начало</a>
                        </li>
                        <li>
-                           <a href="#">Добави контейнер</a>
+                           <a href="#">Регистрация</a>
+                       </li>
+                       <li class="log-in-link">
+                           <a href="#"><img src="{{ url('/') }}/images/log-in.png">Вход</a>
                        </li>
                    </ul>
                </nav>

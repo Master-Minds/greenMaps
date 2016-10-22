@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div ui-view class="view-animate"></div>
+<div class="container">
+    <div class="main-wrapper">
+       <div ui-view class="view-animate"></div>
+    </div>
+</div>
+    
 @endsection
 
 @section('scripts')

@@ -22,10 +22,10 @@ header, footer, nav, section, article, aside, figure, details, summary { display
 body, html { height: 100%; }
 
 body {
-    font-family: 'Proxima Nova', arial, helvetica, sans-serif; 
     font-size: 15px;
     line-height: 1.2;
     color: #000;
+    font-family: 'Open Sans', sans-serif;
     background: #cdcbcb;
     min-width: 1000px;
     -webkit-text-size-adjust: none;
@@ -38,7 +38,7 @@ a:hover { text-decoration: underline; }
 a img { border: 0; }
 img { height: auto; max-width: 100%; font-size: 0; vertical-align: middle; }
 
-h1, h2, h3, h4, h5, h6 { line-height: 1.1; font-weight: normal; }
+h1, h2, h3, h4, h5, h6 { line-height: 1.1; font-weight: normal; margin: 0 !important; }
 
 h1 { font-size: 52px; line-height: 55px; }
 h2 { font-size: 48px; line-height: 51px; }
@@ -49,8 +49,8 @@ h6 { font-size: 16px; line-height: 19px; }
 
 p { }
 
-ul { list-style: disc inside none; }
-ol { list-style: decimal inside none; }
+ul { list-style: disc inside none; margin: 0 !important; }
+ol { list-style: decimal inside none; margin: 0 !important; }
 
 /* ================================================================================
     #Form Elements
@@ -108,8 +108,16 @@ input::-moz-focus-inner { padding: 0; border: 0; }
 
 .shell { width: 960px; margin: 0 auto; }
 
-.header { background: #87D37C; }
-.header .logo { width: 100px; float: left; }
+.header { background: #6bbd5f; box-shadow: 1px 1px 6px rgba(0,0,0,0.3); }
+.header .logo { width: 100px; float: left; font-family: 'Coiny', cursive; color: #fff; text-decoration: none; margin-top: 15px; }
 .header .nav { float: right; }
 .header .nav ul { list-style-type: none; }
-.header .nav ul li { display: inline-block; vertical-align: top; }
+.header .nav ul li { display: inline-block; vertical-align: top; line-height: 33px; font-size: 17px; }
+.header .nav ul li + li { margin-left: 10px; }
+.header .nav ul li a { color: #fff; text-decoration: none; padding: 15px 8px; display: block; position: relative; }
+.header .nav ul li.current-menu-item a { background: #4e9643; }
+.header .nav ul li.current-menu-item a:before { content: ''; position: absolute; left: 0; right: 0;  }
+.header .nav ul li.log-in-link a img { width: 22px; margin-right: 10px; }
+
+/* Main wrapper */
+.main-wrapper { padding: 100px 0; } 
