@@ -3,6 +3,6 @@
             .controller('MainCtrl', MainCtrl)
     MainCtrl.$inject = [];
         function MainCtrl(){
-            console.log('work');
+            console.log('its work');
         };
 }());

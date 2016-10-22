@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /node_modules
+=======
+/vendor
+>>>>>>> 4a3151c65e6fd5d5957fc9ad1efacd39f2ebfff6
 /public/storage
 /vendor
 /.idea
