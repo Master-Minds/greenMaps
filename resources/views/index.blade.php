@@ -5,7 +5,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<<<<<<< HEAD:resources/views/welcome.blade.php
         <title>Laravel</title>
+=======
+@section('title')
+    Green Maps
+    @endsection
+
+@section('content')
+<div class="container" ng-controller="MainCtrl">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">Welcome</div>
+>>>>>>> f1d36da1b7903ced99ab388b722fed1ff724c34e:resources/views/index.blade.php
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -87,5 +100,15 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD:resources/views/welcome.blade.php
     </body>
 </html>
+=======
+    </div>
+</div>
+@endsection
+
+@section('scripts')
+    <script src="{{ url('/')  }}/app/controllers/main-controller.js"></script>
+    @endsection
+>>>>>>> f1d36da1b7903ced99ab388b722fed1ff724c34e:resources/views/index.blade.php

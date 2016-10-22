@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="GreenMaps">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +7,11 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url('/')  }}/node_modules/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- Scripts -->
     <script>
@@ -80,8 +80,11 @@
 
         @yield('content')
     </div>
-
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <!-- Core JavaScripts -->
+    <script src="{{ url('/') }}/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="{{ url('/')  }}/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{ url('/')  }}/node_modules/angular/angular.min.js"></script>
+    <script src="{{ url('/')  }}/app/app.js"></script>
+    @yield('scripts')
 </body>
 </html>
