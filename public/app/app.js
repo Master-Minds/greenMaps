@@ -1,7 +1,8 @@
 ;(function(){
-        angular.module('GreenMaps', ['ui.router', 'uiGmapgoogle-maps', 'ngMap'])
+        angular.module('GreenMaps', ['ui.router'])
             .config(function($stateProvider, $urlRouterProvider){
                 $urlRouterProvider.otherwise("/");
+
 
                 $stateProvider.state('main', {
                     url: "/",
