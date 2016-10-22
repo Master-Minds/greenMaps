@@ -58,6 +58,7 @@
     <script src="{{ url('/') }}/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="{{ url('/')  }}/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="{{ url('/')  }}/node_modules/angular/angular.min.js"></script>
+    <script src="{{ url('/')  }}/node_modules/ngmap/build/scripts/ng-map.min.js"></script>
     <script src="{{ url('/')  }}/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="{{ url('/')  }}/node_modules/lodash/lodash.min.js"></script>
     <script src="{{ url('/')  }}/node_modules/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
