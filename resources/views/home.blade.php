@@ -12,4 +12,5 @@
 @section('scripts')
 <script type="text/javascript" src="{{ url('/') }}/app/controllers/main-controller.js"></script>
 <script type="text/javascript" src="{{ url('/') }}/app/controllers/about-controller.js"></script>
+<script type="text/javascript" src="{{ url('/') }}/app/services/markers.js"></script>
 @endsection
