@@ -5,12 +5,13 @@
     function AboutCtrl(markers){
         var vm = this;
 
-        var map;
+        vm.map;
         var markerss = [];
+        var infowindow;
 
         initMap();
         function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
+            vm.map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: 43.210237, lng: 23.552880},
                 zoom: 13,
                 scrollwheel: false,
@@ -35,10 +36,9 @@
                             position: position,
                             // icon: url + '/images/' + v.image,
                             animation: google.maps.Animation.DROP,
-                            map: map
+                            map: vm.map,
+                            content: v.description
                         }));
-
-
                     }, 50);
 
                 });
@@ -49,23 +49,23 @@
             var marker = new google.maps.Marker({
                 position: location,
                 animation: google.maps.Animation.DROP,
-                map: map
+                map: vm.map,
+                content: "sdds"
+            });
+            marker.addListener('click', function() {
+                infowindow.open(vm.map, marker);
             });
             markerss.push(marker);
         }
 
         vm.newClick = function(){
             // markerss = [];
-            addMarker({lat: 42.3102,lng: 22.65});
-            /*markerss.push(new google.maps.Marker({
-                position: {
-                    lat: 42.3102,
-                    lng: 22.65
-                },
-                animation: google.maps.Animation.DROP,
-                map: map
-            }));
-            markerss.setMap(map);*/
+
+
+            setTimeout(function(){
+                addMarker({lat: 42.3102,lng: 22.65});
+            }, 50);
+
 
         }
     }
