@@ -47,9 +47,12 @@
                     setMapOnAll(null);
                     var position = {
                         la: results[0].geometry.location.lat(),
-                        lo: results[0].geometry.location.lng()
+                        lo: +results[0].geometry.location.lng()
                     }
-                    vm.map.center = position;
+                    vm.map.panTo({
+                        lat: results[0].geometry.location.lat(),
+                        lng: results[0].geometry.location.lng()
+                    });
                     markers.findSpec(position)
                         .then(function(markers){
                            if(markers.success){
