@@ -84,4 +84,24 @@ class MarkerController extends Controller
 
         return response()->json($status);
     }
+
+    public function findMarkers(Request $request)
+    {
+        $la = $request->input('la');
+        $lo = $request->input('lo');
+
+
+        if(!$la)
+            return response()->json(array(['error'=>'No latitude']));
+        if(!$lo)
+            return response()->json(array(['error'=>'No longitude']));
+
+        $la = explode('.', $la);
+        $lo = explode('.', $lo);
+
+        $markers = Marker::where('latitude', 'LIKE', $la[0] .'%')
+                    ->where('langitude', 'LIKE', $lo[0] . '%')->get();
+
+        return response()->json($markers);
+    }
 }
