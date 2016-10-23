@@ -67,6 +67,26 @@
             }, 50);
 
 
-        }
+        };
+
+        // vm.eventOnChange = function(){
+        //     console.log(vm.location)
+        // };
+
+        vm.makeSubmit = function(){
+            geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+                'address': vm.location
+            }, function (results, status) {
+                if(status == google.maps.GeocoderStatus.OK) {
+                    vm.adressess = results[0].formatted_address;
+                    vm.la = results[0].geometry.location.lat();
+                    vm.lo = results[0].geometry.location.lng();
+                }
+            });
+            console.log(vm.la);
+        };
+
     }
+
 }());
