@@ -41,7 +41,7 @@
             if (inputChangedPromise) {
                 $timeout.cancel(inputChangedPromise);
             }
-            inputChangedPromise = $timeout(taskToDo, 200);
+            inputChangedPromise = $timeout(taskToDo, 300);
         };
 
         markers.all()
