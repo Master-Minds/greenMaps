@@ -35,14 +35,29 @@
                <nav class="nav">
                    <ul>
                        <li class="current-menu-item">
-                           <a href="#">Начало</a>
+                           <a href="{{ url('/') }}">Начало</a>
                        </li>
+                       @if (!Auth::user())
                        <li>
-                           <a href="#">Регистрация</a>
+
+                           <a href="{{ url('/register') }}">Регистрация</a>
                        </li>
                        <li class="log-in-link">
-                           <a href="#"><img src="{{ url('/') }}/images/log-in.png">Вход</a>
+                           <a href="{{ url('/login') }}"><img src="{{ url('/') }}/images/log-in.png">Вход</a>
                        </li>
+                       @endif
+
+                       @if(Auth::user())
+                       <li>
+                           <a href="{{ url('/logout') }}"
+                              onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                               Logout
+                           </a>
+                           <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                               {{ csrf_field() }}
+                           </form></li>
+                       @endif
                    </ul>
                </nav>
             </div>
