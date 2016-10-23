@@ -127,3 +127,19 @@ input::-moz-focus-inner { padding: 0; border: 0; }
 .search-main-input input[type="text"]{  width: 550px; height: 50px; border: none; border-radius: 6px; background: #fff; padding: 0 20px; box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.2); }
 
 .main-map-holder { border-top: 5px solid #4e9643; }
+
+.main-form .panel { box-shadow: none; background: none; border: none; margin-top: 50px; }
+.main-form .panel-default>.panel-heading { text-align: center; background: none; box-shadow: none; border: none; font-size: 24px; padding-bottom: 40px; position: relative; }
+.main-form .panel-default>.panel-heading:after { content: ''; position: absolute; left: 50%; bottom: 20px; width: 100px; height: 2px; background: #333; }
+.main-form .panel-default>.panel-heading:after {
+    -webkit-transform: translateX(-50%);
+       -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+         -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+}
+.main-form .form-horizontal .control-label { display: none; }
+.main-form .form-control { width: 550px; height: 40px; border: none; border-radius: 6px; background: #fff; padding: 0 20px; box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.2); }
+.main-form .form-group .col-md-6 { float: none; display: block; margin: 0 auto; }
+.main-form .form-group .first-form-group { margin-bottom: 30px; }
+.btn-submit { border: none !important; padding: 8px 30px !important; background-color: #65c657 !important; }
