@@ -103,9 +103,11 @@ class MarkerController extends Controller
 
         $la = explode('.', $la);
         $lo = explode('.', $lo);
+        $exLa = substr( $la[1], 0, 1);
+        $exLo = substr( $lo[1],0, 1);
 
-        $markers = Marker::where('latitude', 'LIKE', $la[0] .'%')
-                    ->where('langitude', 'LIKE', $lo[0] . '%')->get();
+        $markers = Marker::where('latitude', 'LIKE', $la[0] . '.' . $exLa .'%')
+                    ->where('langitude', 'LIKE', $lo[0] . '.' . $exLo .'%')->get();
         if(count($markers) == 0)
             return response()->json(array(['success'=>'No markers']));
 

@@ -22,15 +22,39 @@
         }
 
          function taskToDo(){
+
             geocoder = new google.maps.Geocoder();
             geocoder.geocode({
                 'address': vm.location
             }, function (results, status) {
+                console.log(results[0].geometry.location.lat());
+                console.log( results[0].geometry.location.lng());
+
                 if(status == google.maps.GeocoderStatus.OK) {
-                    /*vm.adressess = results[0].formatted_address;
-                    vm.la = results[0].geometry.location.lat();
-                    vm.lo = results[0].geometry.location.lng();*/
-                    console.log(results);
+                    setMapOnAll(null);
+                    var position = {
+                        la: results[0].geometry.location.lat(),
+                        lo: results[0].geometry.location.lng()
+                    }
+                    markers.findSpec(position)
+                        .then(function(markers){
+                           if(markers.success){
+                               if(markers.success.constructor == Array){
+
+                                   markers.success.map(function(v, k){
+
+                                       addMarker({
+                                           lat: +v.latitude,
+                                           lng: +v.langitude
+                                       });
+                                   });
+
+
+                               }
+
+                           }
+                        });
+
                 }
             });
         }
@@ -38,36 +62,22 @@
         var inputChangedPromise;
 
         vm.eventOnChange = function(){
+            setMapOnAll(null);
             if (inputChangedPromise) {
                 $timeout.cancel(inputChangedPromise);
             }
             inputChangedPromise = $timeout(taskToDo, 300);
         };
 
-        markers.all()
-            .then(function(resposne){
+            function setMapOnAll(map) {
+                for (var i = 0; i < markerss.length; i++) {
+                    markerss[i].setMap(map);
+                }
+            }
 
+        function resetMarkers(){
 
-                resposne.map(function(v, k){
-
-                    setTimeout(function(){
-                        var position = {
-                            lat: +v.latitude,
-                            lng: +v.langitude
-                        };
-
-                        markerss.push(new google.maps.Marker({
-                            position: position,
-                            // icon: url + '/images/' + v.image,
-                            animation: google.maps.Animation.DROP,
-                            map: vm.map,
-                            content: v.description
-                        }));
-                    }, 50);
-
-                });
-
-            });
+        }
 
         function addMarker(location) {
             var marker = new google.maps.Marker({
