@@ -27,7 +27,7 @@
     <div id="app">
         <header class="header">
             <div class="shell clearfix">
-                <a href="#" class="logo">
+                <a href="{{ url('/') }}" class="logo">
                     <img src="{{ url('/') }}/images/logo-img.png">
                    <h2>GreenMaps</h2>
                 </a>
