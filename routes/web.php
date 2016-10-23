@@ -1,5 +1,7 @@
 <?php
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Garbage;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +20,21 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::group(['prefix' => 'api'], function () {
+
+    Route::post('/add-marker', 'MarkerController@addMarker');
+
+    Route::delete('/delete-marker', 'MarkerController@deleteMarker');
+
+    Route::get('/find-marker', 'MarkerController@findMarkers');
+
+    Route::get('/find-accurate-marker', 'MarkerController@findAccurateMarkers');
+
+    Route::get('/get-marker-by-id', 'MarkerController@getMarkerById');
+
+    Route::put('/update-marker', 'MarkerController@updateMarker');
+
+    Route::get('/get-all-markers', 'MarkerController@getAllMarkers');
+
+});
