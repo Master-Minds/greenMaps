@@ -119,8 +119,11 @@ input::-moz-focus-inner { padding: 0; border: 0; }
 .header .nav ul li.log-in-link a img { width: 22px; margin-right: 10px; }
 
 /* Main wrapper */
-.main-wrapper { padding: 80px 0; } 
+.main-wrapper { padding: 50px 0; } 
 
-.home-top-heading { max-width: 800px; margin: 0 auto; text-align: center; }
+.home-top-heading {  text-align: center; padding-bottom: 80px; }
+.top-heading-inner-holder { max-width: 700px; margin: 0 auto; }
 .home-top-heading h2 { font-size: 30px; font-weight: 300; padding-bottom: 40px; }
 .search-main-input input[type="text"]{  width: 550px; height: 50px; border: none; border-radius: 6px; background: #fff; padding: 0 20px; box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.2); }
+
+.main-map-holder { border-top: 5px solid #4e9643; }

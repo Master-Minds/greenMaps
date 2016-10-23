@@ -1,10 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="main-wrapper">
-       <div ui-view class="view-animate"></div>
-    </div>
+<div class="main-wrapper">
+   <div ui-view class="view-animate"></div>
 </div>
     
 @endsection

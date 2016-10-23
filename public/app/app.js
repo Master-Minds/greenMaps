@@ -7,6 +7,7 @@
                     url: "/",
                     templateUrl: url + "/app/templates/main.html",
                     controller: 'MainCtrl',
+                    controllerAs: 'vm',
                     params: {
                         obj: null
                     },

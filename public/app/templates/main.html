@@ -1,7 +1,21 @@
-<div class="home-top-heading">
-	<h2>Намерете най-близките контейнери за разделно изхвърляне на отпадъци до вас.</h2>
 
-	<form class="search-main-input">
-		<input type="text" name="" placeholder="Въведете адрес...">
-	</form>
+<div class="home-top-heading">
+	<div class="shell">
+		<div class="top-heading-inner-holder">
+			<h2>Намерете най-близките контейнери за разделно изхвърляне на отпадъци до вас.</h2>
+
+			<form class="search-main-input">
+				<input type="text" name="" placeholder="Въведете адрес...">
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="main-map-holder">
+    <ng-map center="43.210237,23.552880" zoom="3">
+
+        <custom-marker position="{{ marker.latitude }}, {{ marker.langitude }}" ng-repeat="marker in vm.markers">
+            <img ng-src="{{ vm.url + '/images/' + marker.image }}" alt="">
+        </custom-marker>
+    </ng-map>
 </div>
