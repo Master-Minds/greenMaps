@@ -48,9 +48,7 @@
             geocoder.geocode({
                 'address': vm.location
             }, function (results, status) {
-                console.log(results[0].geometry.location.lat());
-                console.log( results[0].geometry.location.lng());
-
+                
                 if(status == google.maps.GeocoderStatus.OK) {
                     setMapOnAll(null);
                     var position = {
