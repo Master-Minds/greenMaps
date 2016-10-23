@@ -1,8 +1,8 @@
 ;(function(){
     angular.module('GreenMaps')
         .controller('AboutCtrl', AboutCtrl);
-    AboutCtrl.$inject = ['markers'];
-    function AboutCtrl(markers){
+    AboutCtrl.$inject = ['markers', '$timeout'];
+    function AboutCtrl(markers, $timeout){
         var vm = this;
 
         vm.map;
@@ -37,7 +37,6 @@
                             // icon: url + '/images/' + v.image,
                             animation: google.maps.Animation.DROP,
                             map: vm.map,
-                            content: v.description
                         }));
                     }, 50);
 
@@ -59,8 +58,6 @@
         }
 
         vm.newClick = function(){
-            // markerss = [];
-
 
             setTimeout(function(){
                 addMarker({lat: 42.3102,lng: 22.65});
@@ -69,9 +66,29 @@
 
         };
 
-        // vm.eventOnChange = function(){
-        //     console.log(vm.location)
-        // };
+
+        function taskToDo(){
+            geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+                'address': vm.location
+            }, function (results, status) {
+                if(status == google.maps.GeocoderStatus.OK) {
+                    /*vm.adressess = results[0].formatted_address;
+                    vm.la = results[0].geometry.location.lat();
+                    vm.lo = results[0].geometry.location.lng();*/
+                    console.log(results);
+                }
+            });
+        }
+
+        var inputChangedPromise;
+
+        vm.eventOnChange = function(){
+            if (inputChangedPromise) {
+                $timeout.cancel(inputChangedPromise);
+            }
+            inputChangedPromise = $timeout(taskToDo, 200);
+        };
 
         vm.makeSubmit = function(){
             geocoder = new google.maps.Geocoder();
