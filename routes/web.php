@@ -35,4 +35,6 @@ Route::group(['prefix' => 'api'], function () {
 
     Route::put('/update-marker', 'MarkerController@updateMarker');
 
+    Route::get('/get-all-markers', 'MarkerController@getAllMarkers');
+
 });

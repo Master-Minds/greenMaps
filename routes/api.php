@@ -17,24 +17,3 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-
-Route::get('/get-all-markers', function(Request $request){
-    $markers = DB::table('markers')
-            ->leftJoin('garbage_types', 'markers.garbage_id', '=', 'garbage_types.id')
-            ->leftJoin('users', 'markers.user_id', '=', 'users.id')
-            ->get([
-                'markers.id as marker_id',
-                'markers.title as marker_title',
-                'markers.description',
-                'markers.latitude',
-                'markers.langitude',
-                'garbage_types.*',
-                'users.id',
-                'users.name',
-                'users.email',
-            ]);
-
-//    dd($markers);
-    return response()->json($markers);
-});
-
