@@ -25,4 +25,6 @@ Route::group(['prefix' => 'api'], function () {
 
     Route::post('/add-marker', 'MarkerController@addMarker');
 
+    Route::post('/delete-marker', 'MarkerController@deleteMarker');
+
 });

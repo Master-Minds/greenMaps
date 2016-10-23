@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Garbage;
+use App\Marker;
 use App\Http\Requests;
 
 class MarkerController extends Controller
@@ -54,6 +55,32 @@ class MarkerController extends Controller
                 'user_id' => $user_id
             ]
         );
+
+        return response()->json($status);
+    }
+
+    public function deleteMarker(Request $request)
+    {
+        $markerRequest = $request->input('marker_id');
+        $user = Auth::user();
+        if (!$user)
+            return response()->json(array(['error'=>'Missing authentication']));
+
+
+        if(!$markerRequest)
+            return response()->json(array(['error'=>'Missing marker id']));
+
+        $marker = Marker::find($markerRequest);
+
+        if(!$marker)
+            return response()->json(array(['error'=>'No such marker']));
+
+        if($marker->user_id != $user->id)
+            return response()->json(array(['error'=>'No access for this action']));
+
+
+        $status = $marker->forceDelete();
+
 
         return response()->json($status);
     }
