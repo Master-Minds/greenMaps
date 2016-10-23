@@ -1,8 +1,9 @@
 ;(function(){
         angular.module('GreenMaps')
             .controller('MainCtrl', MainCtrl)
-MainCtrl.$inject = ['markers'];
-        function MainCtrl(markers){
+ MainCtrl.$inject = ['markers', '$timeout'];
+        function MainCtrl(markers, $timeout){
+
             var vm = this;
 
         vm.map;
@@ -19,6 +20,29 @@ MainCtrl.$inject = ['markers'];
             });
 
         }
+
+         function taskToDo(){
+            geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+                'address': vm.location
+            }, function (results, status) {
+                if(status == google.maps.GeocoderStatus.OK) {
+                    /*vm.adressess = results[0].formatted_address;
+                    vm.la = results[0].geometry.location.lat();
+                    vm.lo = results[0].geometry.location.lng();*/
+                    console.log(results);
+                }
+            });
+        }
+
+        var inputChangedPromise;
+
+        vm.eventOnChange = function(){
+            if (inputChangedPromise) {
+                $timeout.cancel(inputChangedPromise);
+            }
+            inputChangedPromise = $timeout(taskToDo, 200);
+        };
 
         markers.all()
             .then(function(resposne){
