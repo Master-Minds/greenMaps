@@ -56,7 +56,7 @@ class MarkerController extends Controller
             ]
         );
 
-        return response()->json($status);
+        return response()->json(array(['success' => $status]));
     }
 
     public function deleteMarker(Request $request)
@@ -81,8 +81,8 @@ class MarkerController extends Controller
 
         $status = $marker->forceDelete();
 
+        return response()->json(array(['success' => $status]));
 
-        return response()->json($status);
     }
 
     public function findMarkers(Request $request)
@@ -101,7 +101,90 @@ class MarkerController extends Controller
 
         $markers = Marker::where('latitude', 'LIKE', $la[0] .'%')
                     ->where('langitude', 'LIKE', $lo[0] . '%')->get();
+        if(count($markers) == 0)
+            return response()->json(array(['success'=>'No markers']));
 
-        return response()->json($markers);
+        return response()->json(array(['success' => $markers]));
     }
+
+    public function findAccurateMarkers(Request $request)
+    {
+        $la = $request->input('la');
+        $lo = $request->input('lo');
+
+
+        if(!$la)
+            return response()->json(array(['error'=>'No latitude']));
+        if(!$lo)
+            return response()->json(array(['error'=>'No longitude']));
+
+
+        $markers = Marker::where('latitude', '=', $la)
+            ->where('langitude', 'LIKE', $lo)->get();
+
+        if(count($markers) == 0)
+            return response()->json(array(['success'=>'No markers']));
+
+        return response()->json(array(['success' => $markers]));
+    }
+
+    public function getMarkerById(Request $request)
+    {
+        $id = $request->input('marker_id');
+        if(!$id)
+            return response()->json(array(['error'=>'No marker id']));
+
+        $marker = Marker::find($id);
+
+        if(!$marker)
+            return response()->json(array(['success'=>'No marker found']));
+
+        return response()->json(array(['success' => $marker]));
+    }
+
+    public function updateMarker(Request $request)
+    {
+        $user = Auth::user();
+        if (!$user)
+            return response()->json(array(['error'=>'Missing authentication']));
+
+        $id = $request->input('marker_id');
+        $title = $request->input('title');
+        $description = $request->input('description');
+        $la = $request->input('la');
+        $lo = $request->input('lo');
+
+        $id = $request->input('marker_id');
+        if(!$id)
+            return response()->json(array(['error'=>'No marker id']));
+
+        $marker = Marker::find($id);
+
+        if(!$marker)
+            return response()->json(array(['error'=>'No marker found']));
+
+        /*check for access*/
+        if($marker->user_id != $user->id)
+            return response()->json(array(['error'=>'No access for this action']));
+
+        if(!$la)
+            $la = '';
+        if(!$lo)
+            $lo = '';
+        if(!$title)
+            $title = '';
+        if(!$description)
+            $description = '';
+
+        $marker->title = $title;
+        $marker->description = $description;
+        $marker->latitude = $la;
+        $marker->langitude = $lo;
+
+        $status = $marker->save();
+
+
+        return response()->json(array(['success' => $status]));
+    }
+
 }
