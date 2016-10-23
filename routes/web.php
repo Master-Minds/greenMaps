@@ -1,5 +1,7 @@
 <?php
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Garbage;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::group(['prefix' => 'api'], function () {
+
+    Route::post('/add-marker', 'MarkerController@addMarker');
+
+    Route::post('/delete-marker', 'MarkerController@deleteMarker');
+
+});

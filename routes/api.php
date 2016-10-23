@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -37,6 +37,4 @@ Route::get('/get-all-markers', function(Request $request){
 //    dd($markers);
     return response()->json($markers);
 });
-Route::get('/test', function(Request $request){
-  return "work";
-});
+
