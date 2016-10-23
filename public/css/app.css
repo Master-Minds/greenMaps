@@ -143,3 +143,9 @@ input::-moz-focus-inner { padding: 0; border: 0; }
 .main-form .form-group .col-md-6 { float: none; display: block; margin: 0 auto; }
 .main-form .form-group .first-form-group { margin-bottom: 30px; }
 .btn-submit { border: none !important; padding: 8px 30px !important; background-color: #65c657 !important; }
+
+/*map window style*/
+.gm-style-iw{
+    position: relative;
+    z-index: 3;
+}

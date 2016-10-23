@@ -27,7 +27,7 @@
 <div id="app">
     <header class="header">
         <div class="shell clearfix">
-            <a href="#" class="logo">
+            <a href="{{ url('/') }}" class="logo">
                 <img src="{{ url('/') }}/images/logo-img.png">
                 <h2>GreenMaps</h2>
             </a>
@@ -68,13 +68,13 @@
     var url = "{!! url('/') !!}";
 </script>
 <!-- Core JavaScripts -->
-{{--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYVoPPn46EivzxaA1nHfAI4z3t8b-1iDs"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYVoPPn46EivzxaA1nHfAI4z3t8b-1iDs"></script>
 <script src="{{ url('/')  }}/node_modules/moment/min/moment.min.js"></script>
 <script src="{{ url('/')  }}/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="{{ url('/')  }}/node_modules/angular/angular.min.js"></script>
-<script src="{{ url('/')  }}/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="{{ url('/')  }}/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script> -->
 
-<script src="{{ url('/')  }}/app/dashboard-app.js"></script>--}}
+<!-- <script src="{{ url('/')  }}/app/dashboard-app.js"></script> -->
 @yield('scripts')
 </body>
 </html>

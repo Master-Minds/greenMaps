@@ -1,16 +1,16 @@
 
 <div class="home-top-heading">
-	<div class="shell">
+	<div style="position: relative;" class="shell">
 		<div class="top-heading-inner-holder">
 			<h2>Намерете най-близките контейнери за разделно изхвърляне на отпадъци до вас.</h2>
 
-			<form class="search-main-input">
+			<form style="position: absolute;z-index: 2;left: 0;right: 0;" class="search-main-input">
 				<input type="text" placeholder="Въведете адрес..." ng-model="vm.location" ng-change="vm.eventOnChange()">
 			</form>
 		</div>
 	</div>
 </div>
 
-<div id="map" style="width: 100%; height: 500px;"></div>
+<div id="map" style="width: 100%; z-index: 1;min-height: 200px;position: absolute;top: 65px; bottom: 0;"></div>
 
 </div>

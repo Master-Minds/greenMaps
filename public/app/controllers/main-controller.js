@@ -12,6 +12,8 @@
 
         initMap();
         function initMap() {
+            console.log(window.innerHeight);
+            document.getElementById('map').style.height = window.innerHeight;
             vm.map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: 43.210237, lng: 23.552880},
                 zoom: 10,
@@ -21,8 +23,19 @@
 
         }
 
-         function taskToDo(){
+        jQuery('body').on('focus', '.search-main-input input', function(){
+            jQuery('.search-main-input').animate({
+                    top: 105,
+                    opacity: 1,
+                    left: '200px',
+                    width: '560px'
+                }, 1000, function(){
 
+                });
+        })
+        
+
+         function taskToDo(){
             geocoder = new google.maps.Geocoder();
             geocoder.geocode({
                 'address': vm.location
@@ -36,17 +49,25 @@
                         la: results[0].geometry.location.lat(),
                         lo: results[0].geometry.location.lng()
                     }
+                    vm.map.center = position;
                     markers.findSpec(position)
                         .then(function(markers){
                            if(markers.success){
                                if(markers.success.constructor == Array){
+                                   jQuery('.search-main-input').animate({
+                                        top: -115,
+                                        opacity: 0.5,
+                                        left: '230px',
+                                        width: '405px'
+                                    }, 700, function(){
 
+                                    }); 
                                    markers.success.map(function(v, k){
 
                                        addMarker({
                                            lat: +v.latitude,
                                            lng: +v.langitude
-                                       });
+                                       }, v.description, v.title);
                                    });
 
 
@@ -79,15 +100,40 @@
 
         }
 
-        function addMarker(location) {
+        function addMarker(location, description, title) {
             var marker = new google.maps.Marker({
                 position: location,
                 animation: google.maps.Animation.DROP,
                 map: vm.map,
                 content: "sdds"
             });
-            marker.addListener('click', function() {
+
+            var infowindow = new google.maps.InfoWindow({
+                content: '<div id="iw-container">' +
+                    '<div class="iw-title">'+ title +'</div>' +
+                    '<div class="iw-content">' +
+                      '<div class="iw-subTitle"></div>' +
+                      '<div class="iw-subTitle"></div>' +
+                      '<p>'+ description +'<br>'+
+                    '</div>' +
+                    '<div class="iw-bottom-gradient"></div>' +
+                  '</div>',
+
+                // Assign a maximum value for the width of the infowindow allows
+                // greater control over the various content elements
+                maxWidth: window.innerWidth
+              });
+            google.maps.event.addListener(marker, 'click', function () {
                 infowindow.open(vm.map, marker);
+
+                jQuery('.search-main-input').animate({
+                    top: -115,
+                    opacity: 0.5,
+                    left: '230px',
+                    width: '405px'
+                }, 700, function(){
+
+                }); 
             });
             markerss.push(marker);
         }
