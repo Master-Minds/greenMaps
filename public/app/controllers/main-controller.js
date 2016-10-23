@@ -29,13 +29,21 @@
                     opacity: 1,
                     left: '200px',
                     width: '560px'
-                }, 1000, function(){
+                }, 500, function(){
 
                 });
         })
         
 
          function taskToDo(){
+            jQuery('.search-main-input').animate({
+                    top: 105,
+                    opacity: 1,
+                    left: '200px',
+                    width: '560px'
+                }, 500, function(){
+
+                });
             geocoder = new google.maps.Geocoder();
             geocoder.geocode({
                 'address': vm.location
@@ -62,7 +70,7 @@
                                         opacity: 0.5,
                                         left: '230px',
                                         width: '405px'
-                                    }, 700, function(){
+                                    }, 500, function(){
 
                                     }); 
                                    markers.success.map(function(v, k){
@@ -134,7 +142,7 @@
                     opacity: 0.5,
                     left: '230px',
                     width: '405px'
-                }, 700, function(){
+                }, 500, function(){
 
                 }); 
             });
