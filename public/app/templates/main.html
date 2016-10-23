@@ -12,10 +12,8 @@
 </div>
 
 <div class="main-map-holder">
-    <ng-map center="43.210237,23.552880" zoom="3">
-
-        <custom-marker position="{{ marker.latitude }}, {{ marker.langitude }}" ng-repeat="marker in vm.markers">
-            <img ng-src="{{ vm.url + '/images/' + marker.image }}" alt="">
-        </custom-marker>
-    </ng-map>
+    <div>
+    <div id="map" style="width: 100%; height: 500px;"></div>
+    <button ng-click="vm.newClick()">Push new marker</button>
+</div>
 </div>
