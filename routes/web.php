@@ -14,7 +14,7 @@ use App\Garbage;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('index');
 });
 
 Auth::routes();
