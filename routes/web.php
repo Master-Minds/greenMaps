@@ -23,6 +23,6 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['prefix' => 'api'], function () {
 
-    Route::get('/add-marker', 'MarkerController@addMarker');
+    Route::post('/add-marker', 'MarkerController@addMarker');
 
 });
