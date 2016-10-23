@@ -25,6 +25,14 @@ Route::group(['prefix' => 'api'], function () {
 
     Route::post('/add-marker', 'MarkerController@addMarker');
 
-    Route::post('/delete-marker', 'MarkerController@deleteMarker');
+    Route::delete('/delete-marker', 'MarkerController@deleteMarker');
+
+    Route::get('/find-marker', 'MarkerController@findMarkers');
+
+    Route::get('/find-accurate-marker', 'MarkerController@findAccurateMarkers');
+
+    Route::get('/get-marker-by-id', 'MarkerController@getMarkerById');
+
+    Route::put('/update-marker', 'MarkerController@updateMarker');
 
 });
