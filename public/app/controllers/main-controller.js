@@ -1,7 +1,7 @@
 ;(function(){
         angular.module('GreenMaps')
             .controller('MainCtrl', MainCtrl)
-    MainCtrl.$inject = ['markers'];
+MainCtrl.$inject = ['markers'];
         function MainCtrl(markers){
             var vm = this;
 

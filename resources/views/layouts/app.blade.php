@@ -53,7 +53,7 @@
         var url = "{!! url('/') !!}";
     </script>
     <!-- Core JavaScripts -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYVoPPn46EivzxaA1nHfAI4z3t8b-1iDs" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYVoPPn46EivzxaA1nHfAI4z3t8b-1iDs"></script>
     <script src="{{ url('/')  }}/node_modules/moment/min/moment.min.js"></script>
     <script src="{{ url('/') }}/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="{{ url('/')  }}/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
