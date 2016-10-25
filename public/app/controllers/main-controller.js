@@ -34,7 +34,7 @@
                 });
         })
         
-
+console.log('Mu little change');
          function taskToDo(){
             jQuery('.search-main-input').animate({
                     top: 105,
@@ -59,6 +59,7 @@
                         lat: results[0].geometry.location.lat(),
                         lng: results[0].geometry.location.lng()
                     });
+                    console.log(position);
                     markers.findSpec(position)
                         .then(function(markers){
                            if(markers.success){
