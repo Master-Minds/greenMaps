@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::post('/login', 'CustomAuth@login');
+
 Route::group(['prefix' => 'api'], function () {
 
     Route::post('/add-marker', 'MarkerController@addMarker');
