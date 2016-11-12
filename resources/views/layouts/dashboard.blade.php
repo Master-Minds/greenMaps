@@ -34,21 +34,21 @@
 
             <nav class="nav">
                 <ul>
-                    <li class="current-menu-item">
+                    <li class="@php echo Request::segment(1) == '' ? 'current-menu-item' : '' @endphp">
                         <a href="{{ url('/') }}">Начало</a>
                     </li>
                     @if (!Auth::user())
-                        <li>
 
-                            <a href="{{ url('/register') }}">Регистрация</a>
+                        <li class="@php echo (Request::segment(1) == 'register') ? 'current-menu-item' : '' @endphp">
+                            <a href="{{ url('/register') }}">Регистрация</a>                            
                         </li>
-                        <li class="log-in-link">
+                        <li class="log-in-link @php echo Request::segment(1) == 'login' ? 'current-menu-item' : '' @endphp">
                             <a href="{{ url('/login') }}"><img src="{{ url('/') }}/images/log-in.png">Вход</a>
                         </li>
                     @endif
 
                     @if(Auth::user())
-                    <li>
+                    <li class="@php echo Request::segment(1) == 'home' ? 'current-menu-item' : '' @endphp">
                         <a href="{{ url('/home') }}">Dashboard</a>
                     </li>
                         <li>
